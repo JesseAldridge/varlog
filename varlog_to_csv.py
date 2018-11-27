@@ -1,4 +1,4 @@
-import re, json, collections, csv, sys
+import re, collections, csv, sys
 
 with open(sys.argv[1]) as f:
   text = f.read()
@@ -26,9 +26,6 @@ for lv in labeled_values:
       merged_row = {}
       merged_rows.append(merged_row)
     merged_row[lv.label] = lv.value
-
-with open('out.json', 'w') as f:
-  f.write(json.dumps(merged_rows, indent=2))
 
 with open('out.csv', 'w') as f:
   writer = csv.writer(f, lineterminator='\n')
